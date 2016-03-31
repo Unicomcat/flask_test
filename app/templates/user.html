@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% import "_macros.html" as macros %}
 {% block title %}Flasky - {{ user.username }}{% endblock %}
 
 {% block page_content %}
@@ -32,4 +32,7 @@
 </div>
     <h3>Post by {{ user.username }}</h3>
     {% include '_posts.html' %}
+<div class="pagination">
+{{ macros.pagination_widget(pagination, '.user/'+user.username)}}
+</div>
 {% endblock %}
