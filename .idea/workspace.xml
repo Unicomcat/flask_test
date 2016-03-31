@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8934481b-cce5-4da2-983a-d86c43bf8b45" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/user.html" afterPath="$PROJECT_DIR$/app/templates/user.html" />
-    </list>
+    <list default="true" id="8934481b-cce5-4da2-983a-d86c43bf8b45" name="Default" comment="" />
     <ignored path="flasky.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
