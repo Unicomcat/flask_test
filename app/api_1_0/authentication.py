@@ -1,15 +1,23 @@
-from ..models import AnonymousUser,User
+from ..models import AnonymousUser, User
 from flask.ext.httpauth import HTTPBasicAuth
 from flask import g
 auth = HTTPBasicAuth()
+from .errors import forbidden
+from . import api
+
+@api.before_request
+@auth.login_required
+def before_request():
+    if not g.current_user.is_anonymous and not g.current_user.confirmed:
+        return forbidden('Unconfirmed account')
 
 
 @auth.verify_password
-def verify_password(email,password):
-    if email =='':
-        g.current_user=AnonymousUser()
+def verify_password(email, password):
+    if email == '':
+        g.current_user = AnonymousUser()
         return True
-    user = User.query.filter_by(email = email).first()
+    user = User.query.filter_by(email=email).first()
     if not user:
         return False
     g.current_user = user
